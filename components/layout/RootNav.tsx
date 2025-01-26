@@ -8,14 +8,14 @@ export function RootNav({ role }: { role?: UserRole }) {
   const adminLinks =
     role === "admin"
       ? [
-          { label: "견적서", path: "/crm/quotation", icon: ScrollText },
+          { label: "견적서", path: "/crm/quotation/list", icon: ScrollText },
           { label: "회원 관리", path: "/crm/users", icon: User },
         ]
       : [];
 
   const userLinks = [
     { label: "대시보드", path: "/crm/dashboard", icon: LayoutDashboard },
-    { label: "내정보", path: "/crm/mypage", icon: Settings },
+    { label: "내정보", path: "/crm/mypage/info", icon: Settings },
   ];
 
   const allLinks = [...userLinks, ...adminLinks];

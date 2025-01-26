@@ -13,7 +13,7 @@ export function User({ user }: { user: GeneralUser }) {
         <div className="text-xs tracking-tight text-muted-foreground">({user.email})</div>
       </div>
       <Separator orientation="vertical" className="mx-3 h-3" />
-      <Link href="/crm/mypage" className="text-sm font-semibold">
+      <Link href="/crm/mypage/info" className="text-sm font-semibold">
         내정보
       </Link>
       <Separator orientation="vertical" className="mx-3 h-3" />
