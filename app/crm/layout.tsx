@@ -10,6 +10,7 @@ export default async function CRMLayout({ children }: PropsWithChildren) {
     <Root>
       <RootHeader user={session.user} />
       <RootNav role={session.user.role} />
+
       <RootBody>{children}</RootBody>
     </Root>
   );

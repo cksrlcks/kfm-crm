@@ -1,0 +1,30 @@
+import {
+  pgTable,
+  serial,
+  integer,
+  text,
+  numeric,
+  timestamp,
+  jsonb,
+  bigint,
+} from "drizzle-orm/pg-core";
+
+export const quotations = pgTable("quotation", {
+  id: serial("id").primaryKey(),
+  quot_no: bigint("quot_no", { mode: "number" }),
+  ins_no: integer("ins_no"),
+  created_at: timestamp("created_at").defaultNow(),
+  updated_at: timestamp("updated_at").defaultNow().notNull(),
+  company_name: text("company_name"),
+  quotation_amount: numeric("quotation_amount", { precision: 12, scale: 2 }),
+  payment_term: text("payment_term"),
+  delivery_term: text("delivery_term"),
+  delivery_condition: text("delivery_condition"),
+  price_valid: integer("price_valid"),
+  remarks: jsonb("remarks"),
+  prepared: text("prepared").notNull(),
+  accessory: jsonb("accessory"),
+  category: jsonb("category"),
+  employees: jsonb("employees"),
+  product_items: jsonb("product_items"),
+});

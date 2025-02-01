@@ -85,4 +85,52 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+  .safe-center {
+    align-items: safe center;
+    justify-content: safe center;
+  }
+}
+
+.print-table {
+  border: 1px solid #000;
+  width: 100%;
+}
+
+.print-table td {
+  border: 1px solid #000;
+  text-align: center;
+  padding: 2px;
+  height: 1.8em;
+  font-size: 10pt;
+}
+
+.print-table .tr {
+  text-align: right;
+}
+
+.acc-list {
+}
+
+.acc-list li {
+  display: flex;
+}
+
+.acc-list .check {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #000;
+  position: relative;
+}
+
+.acc-list .check.checked:after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 1px;
+  width: 7px;
+  height: 11px;
+  border-bottom: 2px solid #000;
+  border-right: 2px solid #000;
+  transform: rotate(45deg);
 }

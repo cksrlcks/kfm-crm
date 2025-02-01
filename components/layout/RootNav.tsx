@@ -4,7 +4,7 @@ import { UserRole } from "@/types/auth";
 import { RootNavItem } from "./RootNavItem";
 import { DraftingCompass, LayoutDashboard, ScrollText, Settings, User } from "lucide-react";
 import CaculatorDialog from "../util/calculator";
-import { useState } from "react";
+import { useCallback, useEffect, useRef, useState, WheelEvent } from "react";
 import { usePathname } from "next/navigation";
 
 export function RootNav({ role }: { role?: UserRole }) {
@@ -46,8 +46,21 @@ export function RootNav({ role }: { role?: UserRole }) {
 
   const allLinks = [...userLinks, ...adminLinks];
 
+  const [fixed, setFixed] = useState(false);
+
+  const scrollNavCheck = useCallback(() => {
+    setFixed(window.scrollY >= 50 ? true : false);
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("scroll", scrollNavCheck);
+    return () => window.removeEventListener("scroll", scrollNavCheck);
+  }, [scrollNavCheck]);
+
   return (
-    <nav className="mb-8 flex items-center justify-between">
+    <nav
+      className={`sticky:bg-red sticky top-0 z-50 mb-8 flex items-center justify-between bg-white ${fixed && "border-b"}`}
+    >
       <ul className="flex items-center gap-2">
         {allLinks.map((item) => (
           <RootNavItem key={item.path} item={item} />
@@ -60,7 +73,11 @@ export function RootNav({ role }: { role?: UserRole }) {
             onClick={() => setCalOpen(true)}
           >
             <DraftingCompass size={18} className="mb-1" />
-            <span className="text-xs font-medium">직경계산</span>
+            <span className="text-xs font-medium">
+              블로워
+              <br />
+              선정
+            </span>
           </button>
           <CaculatorDialog open={calOpen} onOpenChange={setCalOpen} />
         </li>

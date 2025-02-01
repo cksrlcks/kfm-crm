@@ -22,6 +22,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import loginAction from "@/server/actions/auth/login";
 import { ActionResponse } from "@/types/common";
+import Spinner from "../ui/spinner";
 
 export function LoginForm() {
   const router = useRouter();
@@ -42,7 +43,7 @@ export function LoginForm() {
     const response = await loginAction(data);
 
     if (response.success) {
-      alert(response.message);
+      //alert(response.message);
       router.replace("/crm/dashboard");
     } else {
       setFormState(response);
@@ -83,7 +84,7 @@ export function LoginForm() {
               )}
             />
             <Button type="submit" className="w-full" disabled={form.formState.isSubmitting}>
-              로그인
+              {form.formState.isSubmitting ? <Spinner /> : "로그인"}
             </Button>
           </FormContent>
         </Form>
