@@ -4,7 +4,7 @@ import { UserRole } from "@/types/auth";
 import { RootNavItem } from "./RootNavItem";
 import { DraftingCompass, LayoutDashboard, ScrollText, Settings, User } from "lucide-react";
 import CaculatorDialog from "../util/calculator";
-import { useCallback, useEffect, useRef, useState, WheelEvent } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 
 export function RootNav({ role }: { role?: UserRole }) {
