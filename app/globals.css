@@ -33,6 +33,14 @@ body {
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
   }
   .dark {
     --background: 222.2 84% 4.9%;
@@ -59,6 +67,14 @@ body {
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
 
@@ -69,4 +85,52 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+  .safe-center {
+    align-items: safe center;
+    justify-content: safe center;
+  }
+}
+
+.print-table {
+  border: 1px solid #000;
+  width: 100%;
+}
+
+.print-table td {
+  border: 1px solid #000;
+  text-align: center;
+  padding: 2px;
+  height: 1.8em;
+  font-size: 10pt;
+}
+
+.print-table .tr {
+  text-align: right;
+}
+
+.acc-list {
+}
+
+.acc-list li {
+  display: flex;
+}
+
+.acc-list .check {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #000;
+  position: relative;
+}
+
+.acc-list .check.checked:after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 1px;
+  width: 7px;
+  height: 11px;
+  border-bottom: 2px solid #000;
+  border-right: 2px solid #000;
+  transform: rotate(45deg);
 }
