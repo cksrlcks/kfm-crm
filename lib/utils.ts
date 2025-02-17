@@ -14,7 +14,7 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function formatDate(date: Date, formatTemplate: string) {
-  return format(date, formatTemplate, { locale: ko });
+  return format(dayjs(date).tz("Asia/Seoul").toDate(), formatTemplate, { locale: ko });
 }
 
 export function formatPriceWithComma(price: number) {

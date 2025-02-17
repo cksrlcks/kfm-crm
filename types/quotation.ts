@@ -1,11 +1,12 @@
 import { z } from "zod";
+import { BasePaginationReponse, BaseSearchablePagination } from "./common";
 
 export const COMPANY_NAME = "한국유체기계";
 export const EMPLOYEES = [
   { id: 1, name: "이철환", title: "대표" },
   { id: 2, name: "이채윤", title: "부장" },
   { id: 3, name: "이채균", title: "부장" },
-]; // db 회원정보에서 role이 admin인 사람이 나오도록 해야겟지?
+] as const; // db 회원정보에서 role이 admin인 사람이 나오도록 해야겟지?
 
 export const ACCESSORY = [
   { id: 1, name: "suction_silence", label: "SUCTION SILENCE" },
@@ -68,3 +69,6 @@ export type Quotation = QuotationForm & {
   created_at: Date;
   updated_at: Date;
 };
+
+export type GetQuotationsRequest = Partial<BaseSearchablePagination>;
+export type GetQuotationsResponse = BasePaginationReponse<Quotation>;

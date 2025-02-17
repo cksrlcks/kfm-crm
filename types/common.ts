@@ -6,3 +6,10 @@ export type ActionResponse = { message?: string; success: boolean };
 export type BaseNavItem = { path: string; label: string; active?: boolean };
 export type RootNavItem = BaseNavItem & { icon: LucideIcon };
 export type SubNavItem = BaseNavItem & { icon: IconName };
+
+export type BasePagination = { page: number; size: number };
+export type BaseSearchablePagination = BasePagination & { keyword: string };
+export type BasePaginationReponse<T> = {
+  data: T[];
+  totalCount: number;
+};

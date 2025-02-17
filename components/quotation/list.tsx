@@ -95,8 +95,9 @@ export default function QuotationList({ data }: QuotationListProps) {
   ];
 
   return (
-    <div className="w-full">
+    <>
       <DataTable columns={columns} data={data} />
+
       {isPreviewOpen && selected && (
         <QuotationPreview
           data={selected}
@@ -104,6 +105,6 @@ export default function QuotationList({ data }: QuotationListProps) {
           onClose={() => setIsPreviewOpen(false)}
         />
       )}
-    </div>
+    </>
   );
 }
