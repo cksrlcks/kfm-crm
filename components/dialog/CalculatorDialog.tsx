@@ -59,8 +59,8 @@ export default function CaculatorDialog({
     PRESSURE_TYPE_DATA[pressureTypeData.pressure as keyof typeof PRESSURE_TYPE_DATA].filter(
       (item) =>
         item.qs &&
-        item.qs <= Number(pressureTypeData.qs) + 0.3 &&
-        item.qs >= Number(pressureTypeData.qs) - 0.3,
+        item.qs <= Number(pressureTypeData.qs) + 5 &&
+        item.qs >= Number(pressureTypeData.qs) - 5,
     );
 
   const vaccumFilterdFilled = vaccumTypeData.pressure && vaccumTypeData.qd;
@@ -158,7 +158,7 @@ export default function CaculatorDialog({
                         <TableCell>{item.rpm}</TableCell>
                         <TableCell>{item.qs}</TableCell>
                         <TableCell>{item.la}</TableCell>
-                        <TableCell>{item.la && item.la * 1.2}</TableCell>
+                        <TableCell>{((item.la && item.la * 1.2) || 0).toFixed(2)}</TableCell>
                       </TableRow>
                     ))}
                   {pressureFilterFilled && filteredByPressureData?.length === 0 && (
