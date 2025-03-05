@@ -12,10 +12,12 @@ import {
 import CaculatorDialog from "@/components/dialog/CalculatorDialog";
 import { useCallback, useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+import { authClient } from "@/lib/auth-client";
 
 export function RootNav() {
   const [calculatorOpen, setCalculatorOpen] = useState(false);
   const pathname = usePathname();
+  const { data: session, isPending } = authClient.useSession();
 
   const adminLinks = [
     {
@@ -47,7 +49,7 @@ export function RootNav() {
     },
   ];
 
-  const allLinks = [...userLinks, ...adminLinks];
+  const allLinks = session?.user.role === "admin" ? [...userLinks, ...adminLinks] : userLinks;
 
   const [fixed, setFixed] = useState(false);
 
@@ -59,6 +61,10 @@ export function RootNav() {
     window.addEventListener("scroll", scrollNavCheck);
     return () => window.removeEventListener("scroll", scrollNavCheck);
   }, [scrollNavCheck]);
+
+  if (isPending) {
+    return null;
+  }
 
   return (
     <nav
