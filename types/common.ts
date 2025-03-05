@@ -13,3 +13,6 @@ export type BasePaginationReponse<T> = {
   data: T[];
   totalCount: number;
 };
+
+export type BaseOffset = { offset: number; limit: number };
+export type BaseSearchableOffset = { offset: number; limit: number; searchValue: string };

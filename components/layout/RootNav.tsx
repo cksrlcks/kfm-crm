@@ -26,7 +26,7 @@ export function RootNav() {
     },
     {
       label: "회원 관리",
-      path: "/crm/users",
+      path: "/crm/users/admin-list",
       icon: User,
       active: pathname.includes("users"),
     },

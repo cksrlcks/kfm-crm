@@ -5,7 +5,7 @@ import QuotationPreview from "./preview";
 import { Quotation } from "@/types/quotation";
 import { Button } from "../ui/button";
 import { ColumnDef } from "@tanstack/react-table";
-import { DataTable } from "./data-table";
+import { DataTable } from "../board/data-table";
 import { formatDate } from "@/lib/utils";
 import { removeAction } from "@/server/actions/quotation";
 import { toast } from "@/hooks/use-toast";
